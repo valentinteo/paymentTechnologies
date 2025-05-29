@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #141432;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #1f1f3d;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      background-color: #28a745;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+    }
+
+    .checkmark svg {
+      fill: white;
+      width: 50px;
+      height: 50px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 10px 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M9 16.2l-3.5-3.5L4 14l5 5 12-12-1.5-1.5L9 16.2z"/>
+      </svg>
+    </div>
+    <h1>Payment Successful!</h1>
+    <p>Your order will arrive in 7 business days.</p>
+    <a href="/homepage" class="btn">Back To Homepage</a>
+  </div>
+</body>
+</html>

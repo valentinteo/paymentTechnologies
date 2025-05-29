@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Navbar</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+            background-color: #000;
+            /* Black background */
+            color: #fff;
+            /* White text color */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .left-section {
+            flex: 1;
+            /* Push the right section to the far right */
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #ff4d4f;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            /* Ensure consistent padding */
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            /* Ensure consistent font size */
+        }
+
+        .logout-btn:hover {
+            background-color: #ff7875;
+            transform: scale(1.1);
+        }
+
+        /* Profile Icon */
+        .profile-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-icon img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .profile-icon span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Body Padding */
+        .content {
+            margin-top: 60px;
+            /* Add space to avoid overlapping with navbar */
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- Left Section with Logout Button -->
+        <div class="left-section">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Profile Icon on the Far Right -->
+        <!-- <div class="profile-icon"> -->
+        <a href="/admin_profile" class="profile-icon">
+
+            <span>
+                <%= user.username %>
+            </span>
+            <img src="/uploads/<%= userImage %>" alt="Profile Icon">
+
+        </a>
+    </nav>
+</body>
+
+</html>

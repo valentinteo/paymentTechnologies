@@ -1,0 +1,362 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Welcome Admin: <%= user.username %></h1>
+  <a href="/admin/users">Manage Users</a> |
+  <a href="/admin/categories">Manage Categories</a> |
+  <a href="/admin/products">Manage Products</a>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.3rem;
+        }
+
+        /* Main container */
+        .container {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Links as buttons */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b3e);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome Admin: admin</h1>
+    </header>
+
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p>Manage the website efficiently using the options below:</p>
+        <nav>
+            <a href="/admin/users">Manage Users</a>
+            <a href="/admin/categories">Manage Categories</a>
+            <a href="/admin/products">Manage Products</a>
+        </nav>
+    </div>
+
+    <footer>
+        &copy; 2024 Admin Dashboard. All Rights Reserved.
+    </footer>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Global Variables */
+        :root {
+            --primary-color: #00BFA6;
+            --secondary-color: #4CAF50;
+            --bg-light: #F8F9FA;
+            --bg-dark: #121212;
+            --text-dark: #333;
+            --text-light: #fff;
+            --card-bg-light: rgba(255, 255, 255, 0.75);
+            --card-bg-dark: rgba(50, 50, 50, 0.8);
+            --glass-shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode {
+            --bg-light: var(--bg-dark);
+            --text-dark: var(--text-light);
+            --card-bg-light: var(--card-bg-dark);
+            --glass-shadow: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #00B4D8, #4CAF50, #6A11CB, #FFD700);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        /* Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #ff4d4f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff7875;
+            transform: scale(1.05);
+        }
+
+        /* Header */
+        header {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* Glassmorphism Cards */
+        .card {
+            width: 280px;
+            height: 180px;
+            backdrop-filter: blur(10px);
+            background: var(--card-bg-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px var(--glass-shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px var(--glass-shadow);
+        }
+
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover i {
+            color: var(--secondary-color);
+        }
+
+        /* Buttons */
+        .toggle-btn {
+            cursor: pointer;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px var(--glass-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                font-size: 2rem;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <%- include('partials/admin_navbar') %>
+    
+    <!-- Header -->
+    <header>Welcome Admin:<%= user.username %></header>
+
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+
+    <!-- Dashboard Cards -->
+    <div class="container">
+        <a href="/admin/users" class="card">
+            <i class="fas fa-users"></i>
+            Manage Users
+        </a>
+        <a href="/admin/categories" class="card">
+            <i class="fas fa-list"></i>
+            Manage Categories
+        </a>
+        <a href="/admin/products" class="card">
+            <i class="fas fa-boxes"></i>
+            Manage Products
+        </a>
+        <a href="/admin/orders" class="card">
+            <i class="fas fa-boxes"></i>
+            Manage Orders
+        </a>
+        <a href="/admin/report" class="card">
+            <i class="fas fa-boxes"></i>
+            View reports
+        </a>
+    </div>
+
+    <%- include('partials/admin_footer') %>
+</body>
+<!-- Scripts -->
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+
+    // Load Dark Mode Preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+<script src="/js/logout.js"></script>
+</html>
+
